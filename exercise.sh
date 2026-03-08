@@ -38,7 +38,7 @@ get_exercise_file() {
 case "$1" in
 	init)
 		exercise_file="$(get_exercise_file)"
-		exercise_name="${exercise_file%.js}"
+		exercise_name="$(basename "$PWD")"
 		corepack pnpm install
 		git add . && git commit -m "add ${exercise_name} exercise"
 		;;
