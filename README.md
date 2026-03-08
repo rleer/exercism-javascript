@@ -32,3 +32,28 @@ exercism submit hello-world.js
 ```
 
 https://exercism.org/docs/tracks/javascript/tests
+
+## Helper script
+
+This repository includes `exercise.sh` to automate exercise setup and submission.
+
+Run it from inside an exercise directory (for example `captains-log`):
+
+```sh
+../exercise.sh init
+../exercise.sh submit
+```
+
+`init` runs:
+
+```sh
+corepack pnpm install
+git add . && git commit -m "add <exercise-directory-name> exercise"
+```
+
+`submit` runs:
+
+```sh
+git add . && git commit --amend --no-edit
+exercism submit <exercise-directory-name>.js
+```
